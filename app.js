@@ -28,5 +28,5 @@ function clearGrid(e){
 
 function changeGrid(e){
     e.preventDefault();
-    console.log(e);
+    const gridSizeValue = +gridSizeForm.querySelector('input:checked').value;
 }

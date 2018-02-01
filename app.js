@@ -1,5 +1,6 @@
 const resetBtn = document.querySelector('#reset');
 const boxes = document.querySelectorAll('.box');
+const gridSizeForm = document.querySelector('#grid-size');
 
 //eventListeners
 boxes.forEach(function(box, index){
@@ -7,6 +8,8 @@ boxes.forEach(function(box, index){
 })
 
 resetBtn.addEventListener('click', clearGrid);
+
+gridSizeForm.addEventListener('submit', changeGrid);
 
 //functions
 
@@ -21,4 +24,9 @@ function clearGrid(e){
         box.classList.remove('red');
     });
 
+}
+
+function changeGrid(e){
+    e.preventDefault();
+    console.log(e);
 }

@@ -32,12 +32,30 @@ function changeGrid(e){
     const gridSizeValue = +gridSizeForm.querySelector('input:checked').value;
     const grid = makeGrid(gridSizeValue);
     main.innerHTML = '';
-    main.appendChild(grid);
+    grid.forEach((row) => {
+         main.appendChild(row);
+    })
 }
 
 function makeGrid(size){
-    const element = document.createElement('h1');
-    element.textContent = 'GRID!!!!!!!';
-    return element;
+    const rows = [];
+    for(let i = 0; i < size; i += 1){
+        const row = document.createElement('div');
+        row.classList.add('row');
+        const column = document.createElement('div');
+        column.classList.add('col-md-12');
+        row.appendChild(column);
+        for(let i = 0; i < size; i += 1){
+            const box = document.createElement('div');
+            box.classList.add('box');
+            box.addEventListener('click', toggleRed);
+            column.appendChild(box);
 
+    
+       }
+       rows.push(row);
+  
+    }
+    return rows;
+ 
 }
